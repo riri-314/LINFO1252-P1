@@ -4,8 +4,8 @@ philosophe.sh  call "make" from the makefile to compile philosophe.c then run ./
 
 TODO: fix philosophe.c, implement philosophe.py to generate beautiful graphe
 
-##Producteurs-consommateurs
+## Producteurs-consommateurs
 TODO
 
-##Lecteurs et écrivains
+## Lecteurs et écrivains
 TODO
