@@ -57,7 +57,7 @@ void *philosophe(void *arg)
     return (NULL);
 }
 
-int main(int argc, char *argv[])
+void main(int argc, char *argv[])
 {
 
     nb_philosophs = atoi(argv[1]);
