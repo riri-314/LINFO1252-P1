@@ -4,12 +4,8 @@ philosophe.sh  call "make" from the makefile to compile philosophe.c then run ./
 
 Status: work
 
-TODO: implement philosophe.py to generate beautiful graphe
-
 ## Producteurs-consommateurs
 Status: work
-
-TODO: implement prodcons.py to generate beautiful graphe 
 
 ## Lecteurs et écrivains
 TODO
