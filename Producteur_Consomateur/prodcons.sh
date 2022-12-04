@@ -11,7 +11,7 @@ do #iterer sur le nombre de threads
     for nb_mesures in 1 2 3 4 5 
     do #iterer sur le nombre de mesures
     time=$(/usr/bin/time -f "%E" 2>&1 ./prodcons $nb_threads $nb_threads | grep "\.") #trouvé sur internet, peut etre pas la meilleur solution pour mesurer le temps
-    echo "$nb_mesures,$(($nb_threads*2)),$nb_threads,$nb_threads,$time" >> philosophe.csv
+    echo "$nb_mesures,$(($nb_threads*2)),$nb_threads,$nb_threads,$time" >> prodcons.csv
     done
 done
 
