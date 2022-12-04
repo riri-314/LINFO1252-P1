@@ -7,9 +7,9 @@ Status: work
 TODO: implement philosophe.py to generate beautiful graphe
 
 ## Producteurs-consommateurs
-Status: work but bug
+Status: work
 
-TODO: implement prodcons.py to generate beautiful graphe and fix division bug in prodcons.c
+TODO: implement prodcons.py to generate beautiful graphe 
 
 ## Lecteurs et écrivains
 TODO
