@@ -2,10 +2,15 @@
 #include <pthread.h>
 #include <semaphore.h>
 #include <stdlib.h>
+#include <string.h> // for the memset
 
 void *producer (void *) ;
 void *consumer(void *) ;
 sem_t empty, full, mutex ;
+//int produced = 0;
+int buffer[8];
+int in = 0;
+int out = 0;
 
 
 void main(int argc, char *argv[]) {
@@ -15,9 +20,11 @@ void main(int argc, char *argv[]) {
     
     pthread_t cons[nb_consumers];
     pthread_t prod[nb_producers];
-    
-    pthread_mutex_t buffer;
-    pthread_mutex_init(&buffer, NULL);
+
+    memset(buffer, 0, 8*sizeof(int));
+
+    //pthread_mutex_t buffer;
+    //pthread_mutex_init(&buffer, NULL);
 
     sem_init(&empty, 0, 8) ;
     sem_init(&full, 0, 0) ;
@@ -51,19 +58,43 @@ void main(int argc, char *argv[]) {
 }
 
 void *producer(void *arg) {
-    sem_wait(&empty);
-    sem_wait(&mutex);
-    
-    sem_post(&mutex);
-    sem_post(&full);
+    int* to_produce = (int*)arg;
+    for (int i = 0; i < *to_produce; i++)
+    {
+        for (int j = 0; j < 10000; j++){
+        }
+        
+        sem_wait(&empty);
+        sem_wait(&mutex);
+
+        buffer[in] = 1;
+        in = (in+1)%8;
+        printf("Producing: %d\n", i);
+
+        sem_post(&mutex);
+        sem_post(&full);
+
+    }
+    return (NULL);
 
  }
 
 void *consumer (void *arg) {
-    sem_wait(&full);
-    sem_wait(&mutex);
-    
-    sem_post(&mutex);
-    sem_post(&empty);
-    
+    int* to_consume = (int*)arg;
+    for (int i = 0; i < *to_consume; i++)
+    {
+        sem_wait(&full);
+        sem_wait(&mutex);
+
+        buffer[out] = 0;
+        out = (in+1)%8;
+        printf("consuming: %d\n", i);
+
+        sem_post(&mutex);
+        sem_post(&empty);
+        
+        for (int j = 0; j < 10000; j++){
+        }
+    }
+    return (NULL);
 }
