@@ -14,10 +14,9 @@ TODO by Xavier
 
 Status: work
 
-TODO: test_and_set.sh and python plot
  
 ## Test and test and set
-TODO
+Status: work
 
 ## Semaphore
 TODO
