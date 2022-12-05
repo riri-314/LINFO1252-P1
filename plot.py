@@ -8,6 +8,11 @@ y_philo = []
 x_prodcons = [2, 4, 8, 16, 32, 64]
 y_prodcons = []
 
+x_test_and_set = [1, 2, 4, 8, 16]
+y_test_and_set = []
+
+y_test_test_and_set = []
+
 def mean_std(array):
     array = array[1:]
     n = len(array)
@@ -65,9 +70,51 @@ def plot_prodcons():
 
     return 0
 
+
 def plot_lectecre():
     return 0
 
+def plot_test_and_set():
+    with open('Test_and_set/test_and_set.csv') as Test_and_set:
+        test_and_set = csv.reader(Test_and_set, delimiter=',')
+        for row in test_and_set:
+            y_test_and_set.append(row[2])
+    
+    data_test_and_set = mean_std(y_test_and_set)
+
+    plt.figure(4)
+
+    plt.errorbar(x_test_and_set, data_test_and_set[0], data_test_and_set[1], ecolor="r")
+    plt.title("Graph of Test and set")
+    plt.xlabel("Number of threads")
+    plt.ylabel("time [s]")
+    plt.grid(True)
+    plt.savefig("test_and_set.png")
+
+    return 0
+
+def plot_test_test_and_set():
+    with open('Test_test_and_set/test_test_and_set.csv') as Test_test_and_set:
+        test_test_and_set = csv.reader(Test_test_and_set, delimiter=',')
+        for row in test_test_and_set:
+            y_test_test_and_set.append(row[2])
+    
+    data_test_test_and_set = mean_std(y_test_test_and_set)
+
+    plt.figure(5)
+
+    plt.errorbar(x_test_and_set, data_test_test_and_set[0], data_test_test_and_set[1], ecolor="r")
+    plt.title("Graph of Test Test and set")
+    plt.xlabel("Number of threads")
+    plt.ylabel("time [s]")
+    plt.grid(True)
+    plt.savefig("test_test_and_set.png")
+
+    return 0
+
+
 plot_philo()
 plot_prodcons()
+plot_test_and_set()
+plot_test_test_and_set()
 

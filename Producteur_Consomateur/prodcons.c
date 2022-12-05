@@ -92,7 +92,7 @@ void *producer(void *arg) {
     {
         for (int j = 0; j < 10000; j++){
         }
-        //printf("Pre_Producing: %d\n", i);
+        printf("Pre_Producing: %d\n", i);
         
         sem_wait(&empty);
         sem_wait(&mutex);
