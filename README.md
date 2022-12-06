@@ -19,7 +19,7 @@ Status: work
 Status: work
 
 ## Semaphore
-TODO
+TODO: inchallah jamais on va savoir faire ça 
 
 ## Adapt philo prodcons and lecterci to use our semaphore
 TODO
