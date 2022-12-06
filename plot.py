@@ -47,7 +47,7 @@ def plot_philo():
     plt.xlabel("Number of threads")
     plt.ylabel("time [s]")
     plt.grid(True)
-    plt.savefig("philo.png")
+    plt.savefig("Pictures/philo.png")
 
     return 0
 
@@ -66,7 +66,7 @@ def plot_prodcons():
     plt.xlabel("Number of threads")
     plt.ylabel("time [s]")
     plt.grid(True)
-    plt.savefig("prodcons.png")
+    plt.savefig("Pictures/prodcons.png")
 
     return 0
 
@@ -89,7 +89,7 @@ def plot_test_and_set():
     plt.xlabel("Number of threads")
     plt.ylabel("time [s]")
     plt.grid(True)
-    plt.savefig("test_and_set.png")
+    plt.savefig("Pictures/test_and_set.png")
 
     return 0
 
@@ -108,7 +108,7 @@ def plot_test_test_and_set():
     plt.xlabel("Number of threads")
     plt.ylabel("time [s]")
     plt.grid(True)
-    plt.savefig("test_test_and_set.png")
+    plt.savefig("Pictures/test_test_and_set.png")
 
     return 0
 

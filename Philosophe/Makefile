@@ -4,8 +4,10 @@ make: philosophe.c
 test: test.c
 	gcc test.c -o test
 
+csv:
+	./philosophe.sh
+
 clean:
 	rm -f philosophe
-	rm -f test
 
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-make clean
-make 
+#make clean
+#make 
 
 echo "nb_mesure, nb_threads, nb_threads_prod, nb_threads_cons, time" &> prodcons.csv #ajouter nom dans les colones du csv
 
@@ -15,4 +15,4 @@ do #iterer sur le nombre de threads
     done
 done
 
-make clean
+#make clean

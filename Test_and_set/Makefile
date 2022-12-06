@@ -4,6 +4,8 @@ make: test_and_set.c
 test: test.c
 	gcc test.c -o test
 
+csv:
+	./test_and_set.sh
+
 clean:
 	rm -f test_and_set
-	rm -f test
