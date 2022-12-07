@@ -1,33 +1,49 @@
 # LINFO1252-P1
-## How to run
-Execute "make plot" in the root directory to output the plot in Pictures/
+## Avancement du projet
+- [x] Philosophe
 
-See makefile for more documentation
+- [x] Producteurs-consommateurs
 
-## Philosophe
-philosophe.sh  call "make" from the makefile to compile philosophe.c then run ./philosophe and put data in philosophe.csv
+- [x] lecteurs et écrivains
 
-Status: work
+- [x] Scripte de performance et python plot
 
-## Producteurs-consommateurs
-Status: work
+- [x] Implementation de Test and set
 
-## Lecteurs et écrivains
-TODO by Xavier
+- [x] Implementation de Test test and set
 
-## Test and set
+- [ ] Implementation de My_mutex
 
-Status: work
+- [ ] Adapter les 3 programmes de la partie 1
 
- 
-## Test and test and set
-Status: work
+## Comment utiliser
+utilisation du ```Makefile```:
 
-## Semaphore
-TODO: inchallah jamais on va savoir faire ça 
+```make``` compile les programmes C, génére les csv et génére les plot placés dans le directoire ```Pictures```
 
-## Adapt philo prodcons and lecterci to use our semaphore
-TODO
+```make philosophe``` compile philosophe.c
+
+```make prodcons``` compile prodcons.c 
+
+```make lect_ecri```  compile lect_ecri.c
+
+```make test_and_set``` compile test_and_set.c
+
+```make test_test_and_set``` compile test_test_and_set.c
+
+```make csv_philosophe``` génère le csv de philosophe
+
+```make csv_prodcons``` génère le csv de producteur consomateur
+
+```make csv_lect_ecri``` génère le csv de lecteur écrivain
+
+```make csv_test_and_set``` génère le csv de test and set
+
+```make csv_test_test_and_set``` génère le csv de test test and set
+
+``` make clean``` supprime les .o les programmes C 
+
+
 
 ## Rapport du projet
 https://www.overleaf.com/9393533272gtrggrvxyhfz
