@@ -48,7 +48,7 @@ def plot_philo():
     plt.errorbar(x_philo, data_phylo[0], data_phylo[1], ecolor="r")
     plt.title("Graph of philosophe")
     plt.xlabel("Number of threads")
-    plt.ylabel("time [s]")
+    plt.ylabel("time [s], lower is better")
     plt.grid(True)
     plt.savefig("Pictures/philo.png")
 
@@ -67,7 +67,7 @@ def plot_prodcons():
     plt.errorbar(x_prodcons, data_prodcons[0], data_prodcons[1], ecolor="r")
     plt.title("Graph of producteur consommateur")
     plt.xlabel("Number of threads")
-    plt.ylabel("time [s]")
+    plt.ylabel("time [s], lower is better")
     plt.grid(True)
     plt.savefig("Pictures/prodcons.png")
 
@@ -87,8 +87,10 @@ def plot_lectecre():
     plt.errorbar(x_lect_ecri, data_lect_ecri[0], data_lect_ecri[1], ecolor="r")
     plt.title("Graphe of Lecteur Écrivain")
     plt.xlabel("Number of threads")
-    plt.ylabel("time [s]")
+    plt.ylabel("time [s], lower is better")
     plt.grid(True)
+    #plt.legend(["Lecteur écrivain"], loc ="high right")
+
     plt.savefig("Pictures/lect_ecri.png")
     
     return 0
@@ -106,7 +108,7 @@ def plot_test_and_set():
     plt.errorbar(x_test_and_set, data_test_and_set[0], data_test_and_set[1], ecolor="r")
     plt.title("Graph of TAS and TTAS")
     plt.xlabel("Number of threads")
-    plt.ylabel("time [s]")
+    plt.ylabel("time [s], lower is better")
     plt.grid(True)
 
     return 0
@@ -127,6 +129,7 @@ def plot_test_test_and_set():
     #plt.ylabel("time [s]")
     #plt.grid(True)
     #plt.savefig("Pictures/test_test_and_set.png")
+    plt.legend(["tas", "ttas"], loc ="upper right")
     plt.savefig("Pictures/tas_tts.png")
 
 
