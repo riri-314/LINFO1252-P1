@@ -41,7 +41,9 @@ utilisation du ```Makefile```:
 
 ```make csv_test_test_and_set``` génère le csv de test test and set
 
-``` make clean``` supprime les .o les programmes C 
+``` make clean``` supprime les .o des programmes C 
+
+Regarder dans le Makefile pour plus d'informations.
 
 
 
