@@ -76,7 +76,7 @@ void main(int argc, char *argv[]) {
     }
 
     for (int i = 0; i < nb_producers; i++)
-    {
+    {   
         pthread_join(prod[i], NULL);
     }
     

@@ -1,4 +1,4 @@
-make: test_and_set.c
+make: test_and_set.c 
 	gcc test_and_set.c -o test_and_set
 
 test: test.c

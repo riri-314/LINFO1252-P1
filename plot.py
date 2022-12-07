@@ -8,6 +8,9 @@ y_philo = []
 x_prodcons = [2, 4, 8, 16, 32, 64]
 y_prodcons = []
 
+x_lect_ecri = [2, 4, 8, 16, 32, 64]
+y_lect_ecri = []
+
 x_test_and_set = [1, 2, 4, 8, 16]
 y_test_and_set = []
 
@@ -72,6 +75,22 @@ def plot_prodcons():
 
 
 def plot_lectecre():
+    with open('Lecteurs_écrivains/lect_ecri.csv') as Lect_ecri:
+        lect_ecri = csv.reader(Lect_ecri, delimiter=',')
+        for row in lect_ecri:
+            y_lect_ecri.append(row[4])
+
+    data_lect_ecri = mean_std(y_lect_ecri)
+
+    plt.figure(3)
+
+    plt.errorbar(x_lect_ecri, data_lect_ecri[0], data_lect_ecri[1], ecolor="r")
+    plt.title("Graphe of Lecteur Écrivain")
+    plt.xlabel("Number of threads")
+    plt.ylabel("time [s]")
+    plt.grid(True)
+    plt.savefig("Pictures/lect_ecri.png")
+    
     return 0
 
 def plot_test_and_set():
@@ -85,11 +104,10 @@ def plot_test_and_set():
     plt.figure(4)
 
     plt.errorbar(x_test_and_set, data_test_and_set[0], data_test_and_set[1], ecolor="r")
-    plt.title("Graph of Test and set")
+    plt.title("Graph of TAS and TTAS")
     plt.xlabel("Number of threads")
     plt.ylabel("time [s]")
     plt.grid(True)
-    plt.savefig("Pictures/test_and_set.png")
 
     return 0
 
@@ -101,20 +119,23 @@ def plot_test_test_and_set():
     
     data_test_test_and_set = mean_std(y_test_test_and_set)
 
-    plt.figure(5)
+    #plt.figure(5)
 
     plt.errorbar(x_test_and_set, data_test_test_and_set[0], data_test_test_and_set[1], ecolor="r")
-    plt.title("Graph of Test Test and set")
-    plt.xlabel("Number of threads")
-    plt.ylabel("time [s]")
-    plt.grid(True)
-    plt.savefig("Pictures/test_test_and_set.png")
+    #plt.title("Graph of Test Test and set")
+    #plt.xlabel("Number of threads")
+    #plt.ylabel("time [s]")
+    #plt.grid(True)
+    #plt.savefig("Pictures/test_test_and_set.png")
+    plt.savefig("Pictures/tas_tts.png")
+
 
     return 0
 
 
 plot_philo()
 plot_prodcons()
+plot_lectecre()
 plot_test_and_set()
 plot_test_test_and_set()
 

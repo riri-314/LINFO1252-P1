@@ -3,26 +3,37 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <stdio.h>
+//#include "../Headers/tas.h"
+
 
 int nb_threads = 0;
 int lock_int = 0;
 
-void lock(int *my_lock){
-    asm ("movl $1, %%eax;"
+int tas(int *my_lock, int update){
+    int status;
+    asm ("movl %2, %%eax;"
         "xchg %%eax, %0;"
-        :"=&r"(*my_lock) //y is output operand, note the & constraint modifier.
-        :"r"(*my_lock)   //x is input operand 
-        :"%eax"); //%eax is clobbered register     
+        "movl %%eax, %1"
+        :"=&r"(*my_lock),
+        "=&m" (status)
+        :"r"(update)   //x is input operand 
+        :"%eax"); //%eax is clobbered register
+        return status;     
+
+}
+
+
+void lock(int *my_lock){
+    while (tas(my_lock, 1))
+    {
+        /* code */
+    }
+    //printf("ulocked\n");
 }
 
 
 void unlock(int *my_lock){
-    asm ("movl $0, %%eax;"
-        "xchg %%eax, %0;"
-        :"=&r"(*my_lock) //y is output operand, note the & constraint modifier.
-        :"r"(*my_lock)   //x is input operand 
-        :"%eax"); //%eax is clobbered register     
-
+    tas(my_lock, 0);
 }
 
 void *worker(void *section_crit_count){
@@ -35,7 +46,7 @@ void *worker(void *section_crit_count){
         //    printf("fuckit_locked\n");
         //}
         
-        //printf("Consuming: %d\n", i);
+        printf("Consuming: %d\n", i);
         for (int j = 0; j < 10000; j++)
         {
             /* code */
