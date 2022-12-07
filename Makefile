@@ -1,3 +1,11 @@
+plot:
+	make csv_philosophe
+	make csv_prodcons
+	make csv_lect_ecri
+	make csv_test_and_set
+	make csv_test_test_and_set
+	python3 plot.py
+
 philosophe:
 	make -C Philosophe
 
@@ -39,14 +47,6 @@ csv_test_and_set:
 csv_test_test_and_set:
 	make test_test_and_set
 	make csv -C Test_test_and_set
-
-plot:
-	make csv_philosophe
-	make csv_prodcons
-	make csv_lect_ecri
-	make csv_test_and_set
-	make csv_test_test_and_set
-	python3 plot.py
 
 clean_pictures:
 	rm -f Pictures/philo.png
